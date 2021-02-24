@@ -1,0 +1,14 @@
+- name: Update packages
+  yum: 
+    name: '*'
+    state: latest
+    update_cache: yes
+
+- name: Install docker
+  shell: sudo amazon-linux-extras install -y docker
+
+- name: Start docker
+  service: 
+    name: docker
+    state: started
+    enabled: yes
